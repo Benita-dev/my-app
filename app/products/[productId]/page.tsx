@@ -1,4 +1,6 @@
+import { promises } from "dns";
 import { Metadata } from "next";
+import { resolve } from "path";
 
 type Props = {
     params: {
@@ -6,21 +8,23 @@ type Props = {
     };
 };
 
-export const  generateMetadata = ({ params }: Props): Metadata => {
+export const  generateMetadata = async ({ 
+    params, 
+}: Props): Promise<Metadata> => {
+    const title = await new Promise ((resolve) => {
+        setTimeout (() => {
+            resolve ('iPhone ${params.productId}');
+        }, 100);
+    });
     return {
-        title: "Product ${params.productId}"
+        title: 'Product ${title}',
     };
 };
 
-export default function ProductDetails({params}: props) {
+export default function ProductDetails({
+    params,
+}:{
+    params: {productId: string};
+}) {
     return <h1>Details about product {params.productId} </h1>;
   }
-
-
-// export default function ProductDetails({
-//     params,
-// }:{
-//     params: {productId: string};
-// }) {
-//     return <h1>Details about product {params.productId} </h1>;
-//   }
