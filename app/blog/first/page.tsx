@@ -1,4 +1,4 @@
 export default function FirstBlog() {
-    return  <h1>First blog post</h1>;
+    return  <h1>First-ever blog post</h1>;
   }
   
