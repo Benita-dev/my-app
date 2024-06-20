@@ -4,7 +4,7 @@ import { resolve } from "path";
 
 type Props = {
     params: {
-        ProductId: string;
+        productId: string;
     };
 };
 
@@ -13,11 +13,11 @@ export const  generateMetadata = async ({
 }: Props): Promise<Metadata> => {
     const title = await new Promise ((resolve) => {
         setTimeout (() => {
-            resolve ('iPhone ${params.productId}');
+            resolve (`iPhone ${params.productId}`);
         }, 100);
     });
     return {
-        title: 'Product ${title}',
+        title: `Product ${title}`,
     };
 };
 
