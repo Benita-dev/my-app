@@ -1,5 +1,5 @@
 import Card from "@/app/components/card";
 
-export default function UserAnalytics() {
+export default function DefaultUserAnalytics() {
   return <Card>User Analytics</Card>;
 }
